@@ -1,0 +1,172 @@
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #e0f2fe 0%, #f3e8ff 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.container {
+    background-color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 100%;
+    max-width: 900px;
+    text-align: center;
+    flex-direction: column;
+    gap: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.hidden { display: none; }
+.visible { display: flex; }
+.header {
+    color: #3b82f6;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0;
+}
+
+/* Home Screen Styles */
+#homeScreen .bismillah-text {
+    font-size: 1.75rem;
+    font-family: 'Times New Roman', serif;
+    color: #4b5563;
+    margin-bottom: 1rem;
+}
+#homeScreen .menu-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+@media (min-width: 768px) {
+    #homeScreen .menu-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+#homeScreen .menu-card {
+    border-radius: 15px;
+    padding: 30px 20px;
+    font-size: 1.25rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    color: white;
+}
+#homeScreen .menu-card:hover {
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 15px 25px rgba(0,0,0,0.15);
+}
+#homeScreen .menu-card-1 { background-color: #2dd4bf; } /* Teal */
+#homeScreen .menu-card-2 { background-color: #f472b6; } /* Pink */
+#homeScreen .menu-card-3 { background-color: #a78bfa; } /* Violet */
+#homeScreen .menu-card-1:hover { background-color: #14b8a6; }
+#homeScreen .menu-card-2:hover { background-color: #ec4899; }
+#homeScreen .menu-card-3:hover { background-color: #8b5cf6; }
+
+#homeScreen .menu-card .emoji {
+     font-size: 2.5rem;
+}
+
+/* Spelling App Styles */
+.alphabet-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+    gap: 15px; margin-bottom: 20px;
+}
+.letter-card {
+    background-color: #93c5fd; color: #ffffff;
+    font-size: 3rem; font-weight: 700;
+    border-radius: 15px; cursor: pointer;
+    transition: all 0.2s;
+    display: flex; justify-content: center; align-items: center;
+    aspect-ratio: 1 / 1;
+}
+.letter-card:hover { transform: scale(1.05); background-color: #60a5fa; }
+.spelling-section { background-color: #dbeafe; border-radius: 15px; padding: 25px; }
+.spelling-display {
+    background-color: #eff6ff; border-radius: 10px;
+    min-height: 80px;
+    display: flex; justify-content: center; align-items: center;
+    font-size: 3.5rem; font-weight: 700; color: #1e3a8a;
+    margin-bottom: 20px; padding: 10px;
+    overflow-x: auto; text-transform: none; word-break: break-all;
+}
+.case-toggle-buttons { display: flex; justify-content: center; gap: 10px; margin-bottom: 20px; }
+.case-btn {
+    background-color: #e0e7ff; color: #3730a3;
+    padding: 10px 20px; border-radius: 8px;
+    font-size: 1rem; font-weight: 600;
+    cursor: pointer; border: 2px solid transparent; transition: all 0.2s;
+}
+.case-btn:hover { background-color: #c7d2fe; }
+.case-btn.active { background-color: #3b82f6; color: white; }
+
+/* Writing App Styles */
+#writingCanvas {
+    border: 2px dashed #93c5fd; border-radius: 15px;
+    cursor: crosshair; touch-action: none;
+    width: 100%; aspect-ratio: 16 / 9;
+}
+.writing-alphabet-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(45px, 1fr));
+    gap: 10px; margin-bottom: 20px;
+}
+.writing-letter-btn {
+     background-color: #bfdbfe; color: #1e3a8a;
+     border-radius: 10px; font-size: 1.5rem; font-weight: 600;
+     cursor: pointer; transition: background-color 0.2s; padding: 10px;
+}
+.writing-letter-btn:hover, .writing-letter-btn.active { background-color: #3b82f6; color: white; }
+
+/* Matching Game Styles */
+#matchingGameArea { display: flex; justify-content: space-around; width: 100%; margin-bottom: 20px; }
+.matching-col { display: flex; flex-direction: column; gap: 10px; }
+.match-card {
+    width: 80px; height: 80px;
+    font-size: 2.5rem; font-weight: 700;
+    display: flex; justify-content: center; align-items: center;
+    border-radius: 10px; cursor: pointer;
+    transition: all 0.3s ease; border: 3px solid transparent;
+}
+.match-card.upper { background-color: #60a5fa; color: white; }
+.match-card.lower { background-color: #f9a8d4; color: white; }
+.match-card.selected { border-color: #f59e0b; transform: scale(1.08); }
+.match-card.correct { background-color: #34d399 !important; border-color: #059669; transform: scale(1.05); }
+.match-card.incorrect { background-color: #f87171 !important; border-color: #dc2626; transform: scale(0.95); }
+.match-card.matched { opacity: 0.5; cursor: default; background-color: #d1d5db !important; }
+#matchWinMessage { flex-direction: column; gap: 15px; }
+
+/* General Button Styles */
+.action-buttons button, .back-button {
+    background-color: #10b981; color: white;
+    padding: 15px 30px; border-radius: 10px;
+    font-size: 1.2rem; font-weight: 600;
+    cursor: pointer; transition: background-color 0.2s;
+    margin: 5px; border: none;
+}
+.action-buttons button:hover, .back-button:hover { background-color: #059669; }
+.action-buttons .clear-btn { background-color: #ef4444; }
+.action-buttons .clear-btn:hover { background-color: #dc2626; }
+.back-button { background-color: #f59e0b; }
+.back-button:hover { background-color: #d97706; }
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .container { padding: 15px; }
+    .header { font-size: 1.8rem; }
+    #homeScreen .menu-card { font-size: 1rem; }
+    .letter-card, .match-card { font-size: 2rem; }
+    .match-card { width: 60px; height: 60px; }
+    .spelling-display { font-size: 2rem; }
+    .action-buttons button, .back-button { padding: 10px 15px; font-size: 0.9rem; }
+}
