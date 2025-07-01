@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belajar Membaca, Mengeja, dan Menulis</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="homeScreen" class="container visible">
+        <p class="bismillah-text">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</p>
+        <h1 class="header">Selamat Belajar!</h1>
+        <p class="text-lg text-gray-600 mb-8">Pilih aktivitas belajar yang kamu suka.</p>
+        <div class="menu-grid">
+            <div class="menu-card menu-card-1" onclick="showApp('spellingApp')">
+                <span class="emoji">✏️</span> Belajar Mengeja
+            </div>
+            <div class="menu-card menu-card-2" onclick="showApp('writingApp')">
+                <span class="emoji">✍️</span> Latihan Menulis
+            </div>
+            <div class="menu-card menu-card-3" onclick="showApp('matchingApp')">
+                <span class="emoji">🧩</span> Mencocokkan Huruf
+            </div>
+        </div>
+    </div>
+
+    <div id="spellingApp" class="container hidden">
+        <button class="back-button self-start" onclick="showApp('homeScreen')">🏠 Kembali</button>
+        <h1 class="header">Ayo Belajar Mengeja!</h1>
+        <div class="case-toggle-buttons">
+            <button id="upperCaseBtn" onclick="setSpellingCase(true)" class="case-btn">Huruf Besar</button>
+            <button id="lowerCaseBtn" onclick="setSpellingCase(false)" class="case-btn">Huruf Kecil</button>
+        </div>
+        <div class="alphabet-grid" id="alphabetGrid"></div>
+        <div class="spelling-section">
+            <h2 class="text-2xl font-bold text-blue-700 mb-4">Eja Katanya:</h2>
+            <div class="spelling-display" id="spellingDisplay"></div>
+            <div class="action-buttons">
+                <button onclick="speakSpelledWord()">Ucapkan Kata</button>
+                <button class="clear-btn" onclick="resetSpelling()">Hapus</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="writingApp" class="container hidden">
+        <button class="back-button self-start" onclick="showApp('homeScreen')">🏠 Kembali</button>
+        <h1 class="header">Ayo Latihan Menulis!</h1>
+        <p class="text-gray-600">Pilih huruf, lalu coba tulis di kanvas!</p>
+        <div class="writing-alphabet-grid" id="writingAlphabetGrid"></div>
+        <canvas id="writingCanvas"></canvas>
+        <div class="action-buttons">
+            <button class="clear-btn" onclick="clearCanvas()">Bersihkan Kanvas</button>
+        </div>
+    </div>
+
+    <div id="matchingApp" class="container hidden">
+        <button class="back-button self-start" onclick="showApp('homeScreen')">🏠 Kembali</button>
+        <div id="matchGameContainer" class="visible w-full flex-col items-center gap-4">
+            <h1 class="header">Mencocokkan Huruf</h1>
+            <p class="text-gray-600">Pasangkan huruf besar di kiri dengan huruf kecil di kanan.</p>
+            <div id="matchingGameArea">
+                <div id="upperCaseCol" class="matching-col"></div>
+                <div id="lowerCaseCol" class="matching-col"></div>
+            </div>
+        </div>
+        <div id="matchWinMessage" class="hidden w-full items-center">
+             <h1 class="header text-green-500">🎉 Hebat! 🎉</h1>
+             <p class="text-xl text-gray-700">Kamu berhasil mencocokkan semua huruf!</p>
+             <button onclick="initMatchingGame()" class="action-buttons">Main Lagi</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
